@@ -1,0 +1,46 @@
+[gd_scene load_steps=8 format=3 uid="uid://0tdj3sy5delk"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gv5m4"]
+load_path = "res://.godot/imported/checker_black_512x512.png-3b2649de62f16baa6831f5de4d373a57.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fj7yv"]
+albedo_texture = SubResource("CompressedTexture2D_gv5m4")
+uv1_triplanar = true
+uv1_world_triplanar = true
+uv2_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_tlwt5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_aqk2v"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_f3sb7"]
+sky_top_color = Color(0.277787, 0.747043, 0.859626, 1)
+sky_horizon_color = Color(0.80971, 0.919275, 0.93842, 1)
+ground_horizon_color = Color(0.80971, 0.919275, 0.93842, 1)
+
+[sub_resource type="Sky" id="Sky_fj7yv"]
+sky_material = SubResource("ProceduralSkyMaterial_f3sb7")
+
+[sub_resource type="Environment" id="Environment_tlwt5"]
+background_mode = 2
+sky = SubResource("Sky_fj7yv")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Floor" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+
+[node name="Floor" type="MeshInstance3D" parent="Floor"]
+transform = Transform3D(10, 0, 0, 0, 0.2, 0, 0, 0, 10, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_fj7yv")
+mesh = SubResource("BoxMesh_tlwt5")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+transform = Transform3D(10, 0, 0, 0, 0.2, 0, 0, 0, 10, 0, 0, 0)
+shape = SubResource("BoxShape3D_aqk2v")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_tlwt5")
