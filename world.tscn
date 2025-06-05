@@ -1,4 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://0tdj3sy5delk"]
+[gd_scene load_steps=9 format=3 uid="uid://0tdj3sy5delk"]
+
+[ext_resource type="PackedScene" uid="uid://b8wguo75sofia" path="res://character.tscn" id="1_f3sb7"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gv5m4"]
 load_path = "res://.godot/imported/checker_black_512x512.png-3b2649de62f16baa6831f5de4d373a57.s3tc.ctex"
@@ -27,20 +29,26 @@ sky = SubResource("Sky_fj7yv")
 tonemap_mode = 2
 glow_enabled = true
 
-[node name="Node3D" type="Node3D"]
+[node name="World" type="Node3D"]
 
 [node name="Floor" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 
 [node name="Floor" type="MeshInstance3D" parent="Floor"]
-transform = Transform3D(10, 0, 0, 0, 0.2, 0, 0, 0, 10, 0, 0, 0)
+transform = Transform3D(40, 0, 0, 0, 0.2, 0, 0, 0, 40, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_fj7yv")
 mesh = SubResource("BoxMesh_tlwt5")
 skeleton = NodePath("../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
-transform = Transform3D(10, 0, 0, 0, 0.2, 0, 0, 0, 10, 0, 0, 0)
+transform = Transform3D(40, 0, 0, 0, 0.2, 0, 0, 0, 40, 0, 0, 0)
 shape = SubResource("BoxShape3D_aqk2v")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_tlwt5")
+
+[node name="Character" parent="." instance=ExtResource("1_f3sb7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.62195, 0)
+slide_on_ceiling = false
+speed = 3.0
+acceleration = 20.0

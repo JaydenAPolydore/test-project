@@ -19,6 +19,6 @@ func _init(p: float, i: float, d: float) -> void:
 func update(error: Vector3, delta: float) -> Vector3:
 	_error_integral += error * delta
 	var error_derivative = (error - _prev_error) / delta
-	_prev_error = error
+	_prev_errorw = error
 	return _p * error + _i * _error_integral + _d * error_derivative
 	

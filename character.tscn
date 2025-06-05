@@ -1,51 +1,27 @@
-[gd_scene load_steps=4 format=3 uid="uid://b8wguo75sofia"]
+[gd_scene load_steps=5 format=3 uid="uid://b8wguo75sofia"]
 
-[sub_resource type="GDScript" id="GDScript_vu45j"]
-script/source = "extends RigidBody3D
+[ext_resource type="Script" uid="uid://bro65t3eb7jlq" path="res://character.gd" id="1_glpr6"]
 
-const TARGET_SPEED := 5.0
-const UPRIGHT_TORQUE := 5.0
-const MOVE_FORCE := 1.0
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_glpr6"]
+albedo_color = Color(0, 0.501961, 0.27451, 1)
 
-var _pid := Pid3D.new(1.0, 0.1, 1.0)
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_pjt0s"]
 
-func _physics_process(delta: float) -> void:
-	_keep_upright(delta)
-	_move_character(delta)
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wa5vi"]
 
-func _keep_upright(delta: float) -> void:
-	var current_up = global_transform.basis.y
-	var desired_up = Vector3.UP
-	var tilt_axis = current_up.cross(desired_up)
-	var tilt_strength = tilt_axis.length()
-
-	if tilt_strength > 0.001:
-		var correction_torque = tilt_axis.normalized() * tilt_strength * UPRIGHT_TORQUE
-		apply_torque_impulse(correction_torque * delta)
-
-func _move_character(delta: float) -> void:
-	var input_direction = Vector3(
-		Input.get_action_strength(\"ui_right\") - Input.get_action_strength(\"ui_left\"),
-		0.0,
-		Input.get_action_strength(\"ui_down\") - Input.get_action_strength(\"ui_up\")
-	).normalized()
-
-	if input_direction.length_squared() > 0.0:
-		var target_velocity = input_direction * TARGET_SPEED
-		var velocity_error = target_velocity - linear_velocity.project(input_direction)
-		var force = _pid.update(velocity_error, delta) * MOVE_FORCE
-		apply_central_force(force)
-"
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_pjt0s"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_wa5vi"]
-
-[node name="Character" type="RigidBody3D"]
-script = SubResource("GDScript_vu45j")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("CapsuleShape3D_pjt0s")
+[node name="Character" type="CharacterBody3D" node_paths=PackedStringArray("head", "camera")]
+script = ExtResource("1_glpr6")
+head = NodePath("head")
+camera = NodePath("head/Camera3D")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("CapsuleMesh_wa5vi")
+material_override = SubResource("StandardMaterial3D_glpr6")
+mesh = SubResource("CapsuleMesh_pjt0s")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_wa5vi")
+
+[node name="head" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="Camera3D" type="Camera3D" parent="head"]
