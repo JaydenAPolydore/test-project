@@ -1,9 +1,12 @@
 [gd_scene load_steps=9 format=3 uid="uid://0tdj3sy5delk"]
 
+<<<<<<< Updated upstream:world.tscn
 [ext_resource type="PackedScene" uid="uid://b8wguo75sofia" path="res://character.tscn" id="1_f3sb7"]
+=======
+[ext_resource type="PackedScene" uid="uid://c0kyu4t06b4ao" path="res://Player/thePlayer.tscn" id="1_3s2sh"]
+>>>>>>> Stashed changes:old_shit/world.tscn
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gv5m4"]
-load_path = "res://.godot/imported/checker_black_512x512.png-3b2649de62f16baa6831f5de4d373a57.s3tc.ctex"
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fj7yv"]
 albedo_texture = SubResource("CompressedTexture2D_gv5m4")
@@ -47,8 +50,17 @@ shape = SubResource("BoxShape3D_aqk2v")
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_tlwt5")
 
+<<<<<<< Updated upstream:world.tscn
 [node name="Character" parent="." instance=ExtResource("1_f3sb7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.62195, 0)
 slide_on_ceiling = false
 speed = 3.0
 acceleration = 20.0
+=======
+[node name="Player" parent="." instance=ExtResource("1_3s2sh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.749113, 1.68984, -2)
+rotbob = false
+posbob = true
+Y_BOB_FREQ = 5.0
+X_BOB_FREQ = 2.5
+>>>>>>> Stashed changes:old_shit/world.tscn

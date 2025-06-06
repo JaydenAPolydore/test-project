@@ -1,0 +1,53 @@
+[gd_scene load_steps=4 format=3 uid="uid://bym8ta3rvs63y"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1vp88"]
+bg_color = Color(1, 0.237339, 0.672762, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6iq0g"]
+bg_color = Color(0.0273704, 0.70711, 0.504896, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7o6u2"]
+bg_color = Color(0, 0.643136, 0.924299, 1)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScreenMargin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TabsContainer" type="HBoxContainer" parent="ScreenMargin"]
+layout_mode = 2
+
+[node name="WorkScreen" type="PanelContainer" parent="ScreenMargin/TabsContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_1vp88")
+
+[node name="ScreenContainer" type="VBoxContainer" parent="ScreenMargin/TabsContainer/WorkScreen"]
+layout_mode = 2
+
+[node name="Header" type="PanelContainer" parent="ScreenMargin/TabsContainer/WorkScreen/ScreenContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+theme_override_styles/panel = SubResource("StyleBoxFlat_6iq0g")
+
+[node name="ScreenSpace" type="PanelContainer" parent="ScreenMargin/TabsContainer/WorkScreen/ScreenContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TaskScreen" type="PanelContainer" parent="ScreenMargin/TabsContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_7o6u2")
