@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://0tdj3sy5delk"]
+[gd_scene load_steps=11 format=3 uid="uid://0tdj3sy5delk"]
 
 <<<<<<< Updated upstream:world.tscn
 [ext_resource type="PackedScene" uid="uid://b8wguo75sofia" path="res://character.tscn" id="1_f3sb7"]
+<<<<<<< Updated upstream:old_shit/world.tscn
 =======
 [ext_resource type="PackedScene" uid="uid://c0kyu4t06b4ao" path="res://Player/thePlayer.tscn" id="1_3s2sh"]
 >>>>>>> Stashed changes:old_shit/world.tscn
@@ -17,6 +18,10 @@ uv2_triplanar = true
 [sub_resource type="BoxMesh" id="BoxMesh_tlwt5"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_aqk2v"]
+=======
+[ext_resource type="PackedScene" uid="uid://tfq3ngckbmy4" path="res://graydesk.tscn" id="2_tlwt5"]
+[ext_resource type="PackedScene" uid="uid://tg43c0g44e0w" path="res://browndesk.tscn" id="3_aqk2v"]
+>>>>>>> Stashed changes:world.tscn
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_f3sb7"]
 sky_top_color = Color(0.277787, 0.747043, 0.859626, 1)
@@ -32,7 +37,23 @@ sky = SubResource("Sky_fj7yv")
 tonemap_mode = 2
 glow_enabled = true
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gv5m4"]
+load_path = "res://.godot/imported/checker_black_512x512.png-3b2649de62f16baa6831f5de4d373a57.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fj7yv"]
+albedo_texture = SubResource("CompressedTexture2D_gv5m4")
+uv1_triplanar = true
+uv1_world_triplanar = true
+uv2_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_tlwt5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_aqk2v"]
+
 [node name="World" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_tlwt5")
 
 [node name="Floor" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
@@ -47,15 +68,19 @@ skeleton = NodePath("../..")
 transform = Transform3D(40, 0, 0, 0, 0.2, 0, 0, 0, 40, 0, 0, 0)
 shape = SubResource("BoxShape3D_aqk2v")
 
+<<<<<<< Updated upstream:old_shit/world.tscn
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_tlwt5")
 
 <<<<<<< Updated upstream:world.tscn
+=======
+>>>>>>> Stashed changes:world.tscn
 [node name="Character" parent="." instance=ExtResource("1_f3sb7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.62195, 0)
 slide_on_ceiling = false
 speed = 3.0
 acceleration = 20.0
+<<<<<<< Updated upstream:old_shit/world.tscn
 =======
 [node name="Player" parent="." instance=ExtResource("1_3s2sh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.749113, 1.68984, -2)
@@ -64,3 +89,11 @@ posbob = true
 Y_BOB_FREQ = 5.0
 X_BOB_FREQ = 2.5
 >>>>>>> Stashed changes:old_shit/world.tscn
+=======
+
+[node name="graydesk" parent="." instance=ExtResource("2_tlwt5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.92927, 0.6, 10.2401)
+
+[node name="browndesk" parent="." instance=ExtResource("3_aqk2v")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.89218, -0.4, 2.91215)
+>>>>>>> Stashed changes:world.tscn
