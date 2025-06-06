@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://0tdj3sy5delk"]
 
 [ext_resource type="PackedScene" uid="uid://b8wguo75sofia" path="res://character.tscn" id="1_f3sb7"]
-[ext_resource type="PackedScene" uid="uid://uc3fk4ceiady" path="res://graydesk.fbx" id="2_fj7yv"]
+[ext_resource type="PackedScene" uid="uid://ceybwmjljkpkm" path="res://graydesk.blend" id="2_fj7yv"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_f3sb7"]
 sky_top_color = Color(0.277787, 0.747043, 0.859626, 1)
@@ -55,4 +55,4 @@ speed = 3.0
 acceleration = 20.0
 
 [node name="graydesk" parent="." instance=ExtResource("2_fj7yv")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.410136, 0.6, -6.54383)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.62947, 0.6, 4.14433)

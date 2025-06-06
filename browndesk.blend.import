@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dduprwnau3h5s"
-path="res://.godot/imported/graydesk.blend-38f89a75578beb1a4c3109f24c04ad9b.scn"
+uid="uid://ba0nh4hqbkam"
+path="res://.godot/imported/browndesk.blend-3b818301cb2f7d3d308ce2fc80808cea.scn"
 
 [deps]
 
-source_file="res://graydesk.blend"
-dest_files=["res://.godot/imported/graydesk.blend-38f89a75578beb1a4c3109f24c04ad9b.scn"]
+source_file="res://browndesk.blend"
+dest_files=["res://.godot/imported/browndesk.blend-3b818301cb2f7d3d308ce2fc80808cea.scn"]
 
 [params]
 
