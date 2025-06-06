@@ -52,3 +52,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.62195, 0)
 slide_on_ceiling = false
 speed = 3.0
 acceleration = 20.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
