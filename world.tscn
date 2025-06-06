@@ -1,7 +1,15 @@
+<<<<<<< Updated upstream
 [gd_scene load_steps=10 format=3 uid="uid://0tdj3sy5delk"]
 
 [ext_resource type="PackedScene" uid="uid://b8wguo75sofia" path="res://character.tscn" id="1_f3sb7"]
 [ext_resource type="PackedScene" uid="uid://ceybwmjljkpkm" path="res://graydesk.blend" id="2_fj7yv"]
+=======
+[gd_scene load_steps=11 format=3 uid="uid://0tdj3sy5delk"]
+
+[ext_resource type="PackedScene" uid="uid://b8wguo75sofia" path="res://character.tscn" id="1_f3sb7"]
+[ext_resource type="PackedScene" uid="uid://tfq3ngckbmy4" path="res://graydesk.tscn" id="2_tlwt5"]
+[ext_resource type="PackedScene" uid="uid://tg43c0g44e0w" path="res://browndesk.tscn" id="3_aqk2v"]
+>>>>>>> Stashed changes
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_f3sb7"]
 sky_top_color = Color(0.277787, 0.747043, 0.859626, 1)
@@ -54,5 +62,13 @@ slide_on_ceiling = false
 speed = 3.0
 acceleration = 20.0
 
+<<<<<<< Updated upstream
 [node name="graydesk" parent="." instance=ExtResource("2_fj7yv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.62947, 0.6, 4.14433)
+=======
+[node name="graydesk" parent="." instance=ExtResource("2_tlwt5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.92927, 0.6, 10.2401)
+
+[node name="browndesk" parent="." instance=ExtResource("3_aqk2v")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.89218, -0.4, 2.91215)
+>>>>>>> Stashed changes

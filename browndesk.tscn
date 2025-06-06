@@ -1,7 +1,14 @@
+<<<<<<< Updated upstream
 [gd_scene load_steps=4 format=3 uid="uid://qlrbodam8dgq"]
 
 [ext_resource type="PackedScene" uid="uid://ba0nh4hqbkam" path="res://browndesk.blend" id="1_kymrd"]
 [ext_resource type="Texture2D" uid="uid://jysn6xpyxagh" path="res://table64.png" id="2_vm63s"]
+=======
+[gd_scene load_steps=4 format=3 uid="uid://tg43c0g44e0w"]
+
+[ext_resource type="PackedScene" path="res://browndesk.blend" id="1_kymrd"]
+[ext_resource type="Texture2D" path="res://table64.png" id="2_vm63s"]
+>>>>>>> Stashed changes
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ulens"]
 albedo_texture = ExtResource("2_vm63s")
