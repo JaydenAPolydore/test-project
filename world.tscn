@@ -1,19 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://0tdj3sy5delk"]
+[gd_scene load_steps=10 format=3 uid="uid://0tdj3sy5delk"]
 
 [ext_resource type="PackedScene" uid="uid://b8wguo75sofia" path="res://character.tscn" id="1_f3sb7"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gv5m4"]
-load_path = "res://.godot/imported/checker_black_512x512.png-3b2649de62f16baa6831f5de4d373a57.s3tc.ctex"
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fj7yv"]
-albedo_texture = SubResource("CompressedTexture2D_gv5m4")
-uv1_triplanar = true
-uv1_world_triplanar = true
-uv2_triplanar = true
-
-[sub_resource type="BoxMesh" id="BoxMesh_tlwt5"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_aqk2v"]
+[ext_resource type="PackedScene" uid="uid://uc3fk4ceiady" path="res://graydesk.fbx" id="2_fj7yv"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_f3sb7"]
 sky_top_color = Color(0.277787, 0.747043, 0.859626, 1)
@@ -29,7 +17,23 @@ sky = SubResource("Sky_fj7yv")
 tonemap_mode = 2
 glow_enabled = true
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gv5m4"]
+load_path = "res://.godot/imported/checker_black_512x512.png-3b2649de62f16baa6831f5de4d373a57.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fj7yv"]
+albedo_texture = SubResource("CompressedTexture2D_gv5m4")
+uv1_triplanar = true
+uv1_world_triplanar = true
+uv2_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_tlwt5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_aqk2v"]
+
 [node name="World" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_tlwt5")
 
 [node name="Floor" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
@@ -44,11 +48,11 @@ skeleton = NodePath("../..")
 transform = Transform3D(40, 0, 0, 0, 0.2, 0, 0, 0, 40, 0, 0, 0)
 shape = SubResource("BoxShape3D_aqk2v")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_tlwt5")
-
 [node name="Character" parent="." instance=ExtResource("1_f3sb7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.62195, 0)
 slide_on_ceiling = false
 speed = 3.0
 acceleration = 20.0
+
+[node name="graydesk" parent="." instance=ExtResource("2_fj7yv")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.410136, 0.6, -6.54383)
